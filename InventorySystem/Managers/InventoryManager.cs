@@ -48,7 +48,7 @@ namespace InventorySystem.Managers
                         break;
 
                     case '5':
-                        // Sort işlemi
+                        inventory.SortItem();
                         break;
 
                     case '6':

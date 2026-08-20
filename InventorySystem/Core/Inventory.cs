@@ -123,14 +123,52 @@ namespace InventorySystem.Core
             Console.WriteLine();
         }
 
-        public void SortItem(Item item)
+        public void SortItem() //item sıralama
         {
-            items.Sort();
-            foreach (Item item2 in items)
+            Console.Write("1- Name\n2- ID\n3- Price\n4- Weight\nChoose(1/2/3/4): ");
+            char choice = Convert.ToChar(Console.ReadLine());
+
+            if (choice == '1')
             {
-                Console.WriteLine(item2.Name + ", ");
+                var sortedBy = items.OrderBy(item => item.Name);
+
+                foreach (var thing in sortedBy) 
+                {
+                    Console.WriteLine($"Name: {thing.Name}\nID: {thing.ID}\nPrice: {thing.Price}\nWeight: {thing.Weight}\n");
+                }
+
             }
-        }
+
+            else if (choice == '2')
+            {
+                var sortedBy = items.OrderBy(item => item.ID);
+
+                foreach (var thing in sortedBy)
+                {
+                    Console.WriteLine($"Name: {thing.Name}\nID: {thing.ID}\nPrice: {thing.Price}\nWeight: {thing.Weight}\n");
+                }
+            }
+            else if (choice == '3') 
+            {
+                var sortedBy = items.OrderBy(item => item.Price);
+
+                foreach (var thing in sortedBy)
+                {
+                    Console.WriteLine($"Name: {thing.Name}\nID: {thing.ID}\nPrice: {thing.Price}\nWeight: {thing.Weight}\n");
+                }
+            }
+            else if (choice == '4') 
+            {
+                var sortedBy = items.OrderBy(item => item.Weight);
+
+                foreach (var thing in sortedBy)
+                {
+                    Console.WriteLine($"Name: {thing.Name}\nID: {thing.ID}\nPrice: {thing.Price}\nWeight: {thing.Weight}\n");
+                }
+            }
+            else { Console.WriteLine("Invalid choice!"); }
+        }              
+
 
         public void ShowItemDetail()
         {
